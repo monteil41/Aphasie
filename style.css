@@ -1,6 +1,13 @@
 
 
 /*CODE HEADER*/
+nav.navbar{
+	background-color: #A5A5A5!important;
+}
+a.nav-link:hover{
+	color: white!important;
+}
+/*CODE BODY*/
 
 
 }

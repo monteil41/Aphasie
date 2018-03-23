@@ -1,0 +1,7 @@
+Montez le son et rechargez la page <button onclick="location.reload()">Reload (F5)</button>
+<script>
+	ssu = new SpeechSynthesisUtterance()
+	ssu.lang = "fr-FR"
+	ssu.text = "Totot est un trouduc."
+	speechSynthesis.speak(ssu)
+</script>

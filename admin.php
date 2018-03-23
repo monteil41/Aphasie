@@ -14,7 +14,7 @@
           $(function(){ //On cache tout sauf "box1" qyu est le contenu par défaut
             var divs = $(".boxes");
             divs.not("#box1").hide();
-            $("a").click(function(){ //On rend visible l'élément sur lequel on clic et on cache le reste
+            $(".menu").click(function(){ //On rend visible l'élément sur lequel on clic et on cache le reste
               divs.filter(":visible").hide();
               $($(this).attr("href")).show();
               return false;
@@ -31,16 +31,16 @@
 	  <div class="collapse navbar-collapse" id="navbarNav">
 	    <ul class="navbar-nav">
 	      <li class="nav-item active">
-	        <a class="nav-link" id="lieux" href="#box1">Ajouter un objet <span class="sr-only">(current)</span></a>
+	        <a class="nav-link menu" id="lieux" href="#box1">Ajouter un objet <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" id="personnes" href="#box2">Supprimer un objet</a>
+	        <a class="nav-link menu" id="personnes" href="#box2">Supprimer un objet</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" id="objets" href="#box3">Voir tous les objets</a>
+	        <a class="nav-link menu" id="objets" href="#box3">Voir tous les objets</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" id="actions" href="index.html">Retour à l'application</a>
+	        <a class="nav-link" id="actions" href="index.php">Retour à l'application</a>
 	      </li>
 	    </ul>
 	  </div>
