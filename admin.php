@@ -47,19 +47,28 @@
 	</nav>
 	<div class="boxes" id="box1">
 		<div class="bloc">
-			<form method="post" action="traitement.php">
-		   		<label>Saisissez le nom de l'objet</label> : <input type="text" name="nom_objet" />
-			</form>
+			<div class="interieur">
+				<form method="post" action="traitement.php">
+			   		<label>Saisissez le nom de l'objet</label> : <input type="text" name="nom_objet" />
+				</form>
+			</div>
 		</div>
 		<div class="bloc">
-			<form>
-				<label for="Jour">Choisissez une catégorie pour le nouvel objet :</label>
-		            <select name="categorie_objet" id="categorie_objet" />
-		                <option value="1">dynamique</option>
-		                <option value="2">dynamique</option>
-		                <option value="3">dynamique</option>
-		            </select>
-		    </form>
+			<div class="interieur">
+				<form>
+					<label for="Jour">Choisissez une catégorie pour l'objet :</label>
+			            <select name="categorie_objet" id="categorie_objet" />
+			                <option value="1">dynamique</option>
+			                <option value="2">dynamique</option>
+			                <option value="3">dynamique</option>
+			            </select>
+			    </form>
+			</div>
+		</div>
+		<div class="bloc">
+			<div class="interieur">
+				<label>Choisissez une image pour l'objet</label> <button> Choisir une image</button>
+			</div>
 		</div>
 	</div>
 	<div class="boxes" id="box2">

@@ -80,19 +80,19 @@ div.row img{
 div.bloc{
 	padding-bottom: 20px;
 	padding-top: 20px;
-	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	font-family: 'Raleway', sans-serif;
 
 }
 
-div.bloc form{
+div.interieur{
 	width: 50%;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: auto;
 	text-align: center;
-	border-top:0.5px solid #cac7c1;
+	
 	border-bottom:0.5px solid #cac7c1;
 	padding-top: 50px;
 	padding-bottom: 50px;
