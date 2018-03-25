@@ -30,4 +30,10 @@ class Categorie
 	public function affiche() {
     	echo "idCategorie = " , $this->_idCategorie , " , nomCategorie = " , $this->_nomCategorie , " .<br/>";
     }
+
+    public function listeOptionCategorie() {
+    	echo "<option value='" , $this->_idCategorie , "' >";
+    	echo $this->_nomCategorie;
+    	echo "</option>";
+    }
 }

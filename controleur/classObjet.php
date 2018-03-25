@@ -45,7 +45,12 @@ class Objet
 
 
 	public function affiche() {
-    	echo " idObjet = " , $this->_idObjet , " , nomObjet = " , $this->_nomObjet , " , idCategorie = " , $this->_idCategorie , " , urlImage = " , $this->_urlImage , " .";
+		echo "<tr><td>",$this->_idObjet,"</td>";
+		echo "<td>",$this->_nomObjet,"</td>";
+		echo "<td>",$this->_idCategorie,"</td>";
+		echo "<td>",$this->_urlImage,"</td>";
+		echo "<td><form method='POST'><input type='hidden' name='idObjetSup' value='",$this->_idObjet,"'/><button type='submit'>Suprimer</button></form></td></tr>";
+    	//echo " idObjet = " , $this->_idObjet , " , nomObjet = " , $this->_nomObjet , " , idCategorie = " , $this->_idCategorie , " , urlImage = " , $this->_urlImage , " . <br/>";
     }
 
     public function afficheHtml() {

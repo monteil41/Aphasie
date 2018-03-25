@@ -70,6 +70,12 @@ class data {
         }
     }
 
+    public function afficherOptionCategories() {
+        foreach ($this->listeCategories as $Categorie) {
+            $Categorie->listeOptionCategorie();
+        }
+    }
+
     public function addObjet($nomObjet, $idCategorie, $urlImage) 
     {   
         // Ajout dans la base de données
@@ -77,13 +83,13 @@ class data {
         if ($this->connexion->connect_error) {
             die("Connection failed: " . $connexion->connect_error);
         }
-        $resultat = $this->connexion->query("INSERT objets (id_objet, nom_objet, id_categorie, url_image) VALUES (NULL, '" . $nomObjet . "', '" . $idCategorie . "', '" . $urlImage . "')");
+        $resultat = $this->connexion->query("INSERT objets (id_objet, nom_objet, id_categorie, url_image) VALUES (NULL, '" . data::test_input($nomObjet) . "', '" . data::test_input($idCategorie) . "', '" . $urlImage . "')");
 
         // On recupere la valeur ID
         if (!$resultat) {
-            echo "La requete a echoue<br>";
+            echo "La requete a échoué<br>";
         } else {
-            echo 'La base a ete actualisee<br>';
+            echo 'La base a été actualisée<br>';
             $_SESSION['data'] = new data();
         }            
     }
@@ -93,6 +99,21 @@ class data {
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
+    }
+
+    public function delObjet($idObjet) {
+        $this->connexion = new mysqli($this->servername, $this->username, $this->password, $this->db);
+        if ($this->connexion->connect_error) {
+            die("Connection failed: " . $connexion->connect_error);
+        }
+        $resultat = $this->connexion->query("DELETE FROM objets WHERE id_objet ='".$idObjet."'");
+
+        if (!$resultat) {
+            echo "La requete a échoué<br>";
+        } else {
+            echo 'La base a été actualisée<br>';
+            $_SESSION['data'] = new data();
+        }
     }
 
 }

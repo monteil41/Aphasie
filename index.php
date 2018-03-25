@@ -1,11 +1,10 @@
 <?php
 require "controleur/data.php";
 session_start();
-/*if (!isset($_SESSION['data'])) 
+if (!isset($_SESSION['data'])) 
         {
             $_SESSION['data'] = new data();
-        }*/
-        $_SESSION['data'] = new data();
+        }
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +45,7 @@ session_start();
                         </ol>-->
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">AphasiX</a>
+  <a class="navbar-brand" href="#"><img src="images/icon.png"> AphasiX</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -76,7 +75,7 @@ session_start();
 <div id="container_phrase">
       <h1>Veuillez sélectionner des mots afin de former une phrase</h1>
       <p id="phrase"></p>
-      <button>Lire</button> 
+      <button id="reinitialiser">Réinitialiser</button> <button id="lecture">Lire</button> 
 </div>
 <?php
 //print_r($_SESSION['data']);
@@ -134,11 +133,16 @@ session_start();
 </script>
 <script>
 	$(function(){       
-            $("button").click(function(){ //On rend visible l'élément sur lequel on clic et on cache le reste
+            $("#lecture").click(function(){ //On rend visible l'élément sur lequel on clic et on cache le reste
             		ssu = new SpeechSynthesisUtterance()
 				ssu.lang = "fr-FR"
 				ssu.text = $("#phrase").text()
 				speechSynthesis.speak(ssu)
+            });
+          });
+	$(function(){       
+            $("#reinitialiser").click(function(){ //On rend visible l'élément sur lequel on clic et on cache le reste
+            	 $("#phrase").text("");
             });
           });
 

@@ -24,56 +24,98 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	  <a class="navbar-brand" href="#">AphasiX admin</a>
+	  <a class="navbar-brand" href="#"><img src="images/icon.png"> AphasiX</a>
 	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	    </button>
 	  <div class="collapse navbar-collapse" id="navbarNav">
 	    <ul class="navbar-nav">
 	      <li class="nav-item active">
-	        <a class="nav-link menu" id="lieux" href="#box1">Ajouter un objet <span class="sr-only">(current)</span></a>
+	        <a class="nav-link menu"  href="#box1">Ajouter un objet <span class="sr-only">(current)</span></a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link menu" id="personnes" href="#box2">Supprimer un objet</a>
+	        <a class="nav-link menu"  href="#box2">Liste des objets</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link menu" id="objets" href="#box3">Voir tous les objets</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" id="actions" href="index.php">Retour à l'application</a>
+	        <a class="nav-link "  href="index.php">Retour à l'application</a>
 	      </li>
 	    </ul>
 	  </div>
 	</nav>
+	<?php
+	require "controleur/data.php";
+	session_start();
+	if (!isset($_SESSION['data'])) 
+	        {
+	            $_SESSION['data'] = new data();
+	        }
+
+	if(isset($_POST["nom_objet"]) && isset($_POST["id_categorie"]) && isset($_FILES['image']['name'])){
+		$url = "images/{$_FILES['image']['name']}";
+		$resultat = move_uploaded_file($_FILES['image']['tmp_name'],$url);
+		$_SESSION["data"]->addObjet($_POST["nom_objet"],$_POST["id_categorie"],$url);
+		unset($_POST["nom_objet"]);
+		unset($_POST["id_categorie"]);
+		unset($url);
+	}
+	if(isset($_POST["idObjetSup"])){
+		$_SESSION['data']->delObjet($_POST["idObjetSup"]);
+		unset($_POST["idObjetSup"]);
+	}
+	?>
+
 	<div class="boxes" id="box1">
 		<div class="bloc">
 			<div class="interieur">
-				<form method="post" action="traitement.php">
+				<form method="post" action="" <form method="post" action="page.php" enctype="multipart/form-data">
 			   		<label>Saisissez le nom de l'objet</label> : <input type="text" name="nom_objet" />
-				</form>
+
 			</div>
 		</div>
 		<div class="bloc">
 			<div class="interieur">
-				<form>
 					<label for="Jour">Choisissez une catégorie pour l'objet :</label>
-			            <select name="categorie_objet" id="categorie_objet" />
-			                <option value="1">dynamique</option>
-			                <option value="2">dynamique</option>
-			                <option value="3">dynamique</option>
+			            <select id="categorie_objet" name="id_categorie" />
+							<?php
+								$_SESSION['data']->afficherOptionCategories();
+							?>
 			            </select>
-			    </form>
+
 			</div>
 		</div>
 		<div class="bloc">
 			<div class="interieur">
-				<label>Choisissez une image pour l'objet</label> <button> Choisir une image</button>
+				<label>Choisissez une image pour l'objet</label> 
+				<input type="file" name="image" />
+				<br/>
+				<br/>
+								<button type="submit">Enregistrer</button>		
 			</div>
 		</div>
+
+		</form>
 	</div>
 	<div class="boxes" id="box2">
-	</div>
-	<div class="boxes" id="box3">
+		<table>
+			<tr>
+				<td>
+					Id Objet
+				</td>
+								<td>
+					Nom Objet
+				</td>
+								<td>
+					Catégorie Objet
+				</td>
+								<td>
+					Url Image Objet
+				</td>
+				<td>Actions</td>
+			</tr>
+		<?php
+			$_SESSION['data']->afficherObjets();
+		?>
+	</table>
 	</div>
 
 </body>
