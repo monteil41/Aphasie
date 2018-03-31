@@ -51,7 +51,13 @@ div.contenu-carte h1{
 div.row img{
 	max-width: 300px;
 }
-
+.contenu-carte{
+	opacity: 1;
+	transition: opacity 0.1s;
+}
+.contenu-carte:hover{
+	opacity: 0.8;
+}
 @media screen and (max-width: 900px) {
 
 	div.contenu-carte h1{

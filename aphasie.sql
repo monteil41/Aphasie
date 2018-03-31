@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 25 Mars 2018 à 17:45
+-- Généré le :  Jeu 29 Mars 2018 à 21:46
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `aphasie`
 --
-CREATE DATABASE IF NOT EXISTS `aphasie` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `aphasie`;
 
 -- --------------------------------------------------------
 
@@ -61,22 +59,22 @@ CREATE TABLE `objets` (
 --
 
 INSERT INTO `objets` (`id_objet`, `nom_objet`, `id_categorie`, `url_image`) VALUES
-(19, 'Jean', '2', 'images/test.jpg'),
-(18, 'Papa', '2', 'images/test.jpg'),
-(17, 'Maman', '2', 'images/test.jpg'),
-(16, 'Salon', '1', 'images/test.jpg'),
-(15, 'Garage', '1', 'images/test.jpg'),
-(14, 'Cuisine', '1', 'images/test.jpg'),
-(13, 'Chambre', '1', 'images/test.jpg'),
-(20, 'Claire', '2', 'images/test.jpg'),
-(21, 'Voiture', '3', 'images/test.jpg'),
-(23, 'Table', '3', 'images/test.jpg'),
-(24, 'Glace', '3', 'images/test.jpg'),
-(25, 'Lampe', '3', 'images/test.jpg'),
-(27, 'Couvertures', '3', 'images/test.jpg'),
-(29, 'Allumer', '4', 'images/test.jpg'),
-(30, 'Mettre', '4', 'images/test.jpg'),
-(31, 'Manger', '4', 'images/test.jpg'),
+(19, 'Jean', '2', 'images/jean.jpg'),
+(18, 'Papa', '2', 'images/papa.jpg'),
+(17, 'Maman', '2', 'images/maman.jpg'),
+(16, 'Salon', '1', 'images/salon.jpg'),
+(15, 'Garage', '1', 'images/garage.jpg'),
+(14, 'Cuisine', '1', 'images/cuisine.jpg'),
+(13, 'Chambre', '1', 'images/chambre.jpg'),
+(20, 'Claire', '2', 'images/claire.jpg'),
+(21, 'Voiture', '3', 'images/voiture.jpg'),
+(23, 'Table', '3', 'images/table.jpg'),
+(24, 'Glace', '3', 'images/glace.jpg'),
+(25, 'Lampe', '3', 'images/lampe.jpg'),
+(27, 'Couvertures', '3', 'images/couver.jpg'),
+(29, 'Allumer', '4', 'images/allumer.jpg'),
+(30, 'Mettre', '4', 'images/mettre.png'),
+(31, 'Manger', '4', 'images/manger.jpg'),
 (39, 'Dormir', '4', 'images/IMG_0289.JPG');
 
 --
